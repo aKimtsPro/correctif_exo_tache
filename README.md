@@ -1,27 +1,9 @@
 # ExoTache
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
+## AVANT DE COMMENCER
 
-## Development server
+Ne pas oublier <code>npm install</code> pour reinstaller les dépendances.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## JSON-SERVER
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Le site va chercher ses informations sur une api json-server lancée sur la même machine que le projet. Pour avoir une application fonctionnelle, veuillez lancer le json-server avec les fichiers db.json ou db2.json grâce à la commande <code>json-server --watch db.json</code>.
