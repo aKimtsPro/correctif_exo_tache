@@ -1,0 +1,28 @@
+<div class="tache-item" >
+    <div class="infos">
+        <div>
+            <h5>{{tache.intitule}}</h5>
+        </div>
+        <div>
+            <p><span class="info-title">créée le: </span>{{tache.dateCreation | date:'d MMMM yyyy à hh\'h\'mm'}}</p>
+            
+        </div>
+        <div *ngIf="tache.deadLine">
+            <p><span class="info-title">deadline: </span>{{tache.deadLine ? (tache.deadLine|date:'d MMMM yyyy à hh\'h\'mm')  : "non spécifié"}}</p>
+        </div>
+        <div *ngIf="tache.dateTermine">
+            <p><span class="info-title">terminée le: </span>{{tache.dateTermine ? (tache.dateTermine|date:'d MMMM yyyy à hh\'h\'mm') : "not present"}}</p>
+        </div>
+    </div>
+    <div class="actions">
+        <div class="btn-rack btn-group">
+            <button class="btn secondary-btn" routerLink="/tache/{{tache.id}}">details</button>
+            <button class="btn secondary-btn" routerLink="/tache/delete/{{tache.id}}">delete</button>
+        </div>
+        <div *ngIf="!tache.dateTermine" class="btn-rack btn-group">
+            <button class="btn primary-btn" routerLink="/tache/update/{{tache.id}}">update</button>
+            <button class="btn primary-btn" routerLink="/tache/terminate/{{tache.id}}">terminer</button>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,79 @@
+<div>
+    <h5>Controle de filtre</h5>
+
+    <form [formGroup]="filterOptionsForm" class="control-form" (ngSubmit)="onSubmit()">
+        <div class="control-form-input row">
+            <div class="col-3">
+                <label for="filtre-termine" class="form-label">terminé?</label>
+                <select class="form-select" id="filtre-termine" formControlName="termine">
+                    <option [ngValue]="null">/</option>
+                    <option [ngValue]="true">termine</option>
+                    <option [ngValue]="false">non termine</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <label for="filtre-deadline" class="form-label">deadline?</label>
+                <select class="form-select" id="filtre-deadline" formControlName="deadline">
+                    <option [ngValue]="null">/</option>
+                    <option [ngValue]="true">deadline</option>
+                    <option [ngValue]="false">no deadline</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <label for="select-desc" class="form-label">description?</label>
+                <select class="form-select" id="select-desc" formControlName="hasDescription">
+                    <option [ngValue]="null">/</option>
+                    <option [ngValue]="true">description</option>
+                    <option [ngValue]="false">pas description</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <label for="input-intitule-include" class="form-label">intitule contient?</label>
+                <input type="text" id="input-intitule-include" placeholder="intitule includes" class="form-control" formControlName="intituleIncludes">
+            </div>
+            
+            <div class="col-3">
+                <label for="input-termine-avant" class="form-label">termine avant?</label>
+                <input 
+                    type="datetime-local" 
+                    id="input-termine-avant" 
+                    class="form-control" 
+                    formControlName="termineAvant"
+                >
+            </div>
+            <div class="col-3">
+                <label for="input-deadline-avant" class="form-label">deadline avant?</label>
+                <input 
+                    type="datetime-local" 
+                    id="input-deadline-avant" 
+                    class="form-control" 
+                    formControlName="deadlineAvant"
+                >
+            </div>
+            <div class="col-3">
+                <label for="select-priorite" class="form-label">priorité?</label>
+                <select class="form-select" id="select-priorite" formControlName="priorite">
+                    <option [ngValue]="null">/</option>
+                    <option value="bas">bas</option>
+                    <option value="moyen">moyen</option>
+                    <option value="haut">haut</option>
+                </select>
+            </div>
+            <div class="col-3">
+                <label for="select-priorite-greater" class="form-label">priorité >=?</label>
+                <select class="form-select" id="select-priorite-greater" formControlName="prioriteHigherThan">
+                    <option [ngValue]="null">/</option>
+                    <option value="bas">bas</option>
+                    <option value="moyen">moyen</option>
+                    <option value="haut">haut</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="btn-rack btn-group">
+            <button type="submit" class="btn primary-btn">filtrer</button>
+            <button type="reset" class="btn base-btn">reset</button>
+        </div>
+    </form>
+
+</div>

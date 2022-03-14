@@ -1,0 +1,41 @@
+<h4>Ajouter une tache</h4>
+
+<form [formGroup]="tacheForm" (ngSubmit)="onSubmit()" *ngIf="tache">
+
+    <div>
+        <p><span>id:</span> {{tache.id}} </p>
+    </div>
+
+    <div class="mb-3">
+        <label for="input-intitule" class="form-label">Intitule</label>
+        <input type="text" class="form-control" id="input-intitule" formControlName="intitule">
+        <div *ngIf="tacheForm.controls['intitule'].errors?.['required']" class="form-error">champ requis</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="disabledSelect" class="form-label">priorité</label>
+        <select id="disabledSelect" class="form-select" formControlName="priorite" >
+          <option value="bas">basse</option>
+          <option value="moyen">moyenne</option>
+          <option value="haut">haute</option>
+        </select>
+      </div>
+
+      <div class="mb-3 btn-rack btn-group">
+        <button type="button" class="btn" [ngClass]="{'secondary-btn': !descriptionIncluded,'primary-btn':descriptionIncluded}" (click)="toggleDescription()">{{descriptionIncluded ? 'supprimer':'inclure'}} description</button>
+        <button type="button" class="btn" [ngClass]="{'secondary-btn': !deadlineIncluded,'primary-btn':deadlineIncluded}" (click)="toggleDeadline()">{{deadlineIncluded ? 'supprimer':'inclure'}} deadline</button>
+      </div>
+
+      <div class="mb-3" *ngIf="descriptionIncluded">
+        <label for="input-description" class="form-label">Description</label>
+        <textarea class="form-control" id="input-description" rows="3" formControlName="description" ></textarea>
+      </div>  
+
+      <div class="mb-3" *ngIf="deadlineIncluded">
+        <label for="input-deadline" class="form-label">Deadline</label>
+        <input type="datetime-local" class="form-control" id="input-deadline" formControlName="deadLine"/>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

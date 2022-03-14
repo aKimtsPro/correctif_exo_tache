@@ -1,0 +1,57 @@
+<h3>Mes taches</h3>
+
+<div>
+    <div *ngIf="taches$ | obsWithStatus | async as taches">
+        <p *ngIf="taches.loading">loading ...</p>
+        <div *ngIf="taches.value">
+            <ng-container *ngIf="taches.value | filterTache:filter | sortTache:sort as tachesDisplayed">
+                <div id="control-container">
+                    
+                    <div class="row">
+                        <div class=" col-md-7">
+                            <ngb-pagination
+                                class="d-flex justify-content-center "
+                                [(page)]="page"
+                                [pageSize]="pageSize"
+                                [collectionSize]="tachesDisplayed.length"
+                                [maxSize]="3">
+                            </ngb-pagination>
+                            <div id="page-controls">
+                                <div class="input-group">
+                                    <label class="input-group-text" id="input-page-size">nombre d'element</label>
+                                    <select [(ngModel)]="pageSize" class="form-select" aria-describedby="input-page-size">
+                                        <option [ngValue]="10">10</option>
+                                        <option [ngValue]="20">20</option>
+                                        <option [ngValue]="50">50</option>
+                                        <option [ngValue]="100">100</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-5">
+                            <div class="btn-rack btn-group">
+                                <button class="btn primary-btn" (click)="toggleFiltrer()">{{filterDisplayed?'cacher':'afficher'}} filtrage</button>
+                                <button class="btn secondary-btn" (click)="resetFilter()" *ngIf="!filterDisplayed && filter">reset filtre</button>
+                            </div>
+                            <div class="btn-rack btn-group">
+                                <button class="btn primary-btn" (click)="toggleTri()" >{{triDisplayed?'cacher':'afficher'}} tri</button>
+                                <button class="btn secondary-btn" *ngIf="sort" (click)="resetSort()" >reset tri</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="filterDisplayed" class="control-panel secondary-bg">
+                        <app-filter-tool (filter)="onFilter($event)"></app-filter-tool>
+                    </div>
+                    <div *ngIf="triDisplayed" class="control-panel secondary-bg">
+                        <app-sorting-tool [current-sort]="sort" (sorting)="onSort($event)"></app-sorting-tool>
+                    </div>
+                </div>
+                
+                <div *ngFor="let tache of (tachesDisplayed | slice:((page-1)*pageSize):page*pageSize)">
+                    <app-list-item [tache]="tache"></app-list-item>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

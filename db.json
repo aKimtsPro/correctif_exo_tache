@@ -1,0 +1,34 @@
+{
+  "taches": [
+    {
+      "id": 1,
+      "intitule": "tester",
+      "description": null,
+      "deadLine": null,
+      "dateTermine": null,
+      "dateCreation": "2020-01-01T10:00:00",
+      "priorite": "bas"
+    },
+    {
+      "intitule": "manger",
+      "description": null,
+      "deadLine": null,
+      "priorite": "moyen",
+      "id": 2
+    },
+    {
+      "intitule": "manger",
+      "description": null,
+      "deadLine": null,
+      "priorite": "moyen",
+      "id": 3
+    },
+    {
+      "intitule": "mourir",
+      "description": null,
+      "deadLine": null,
+      "priorite": "bas",
+      "id": 4
+    }
+  ]
+}

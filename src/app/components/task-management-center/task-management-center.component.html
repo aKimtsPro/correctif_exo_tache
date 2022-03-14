@@ -1,0 +1,18 @@
+<div id="mngmt-header">
+    <h2>Gestion de tâche</h2>
+    <a routerLink="/tache/add"><button class="btn primary-btn">ajouter une tâche</button></a>
+</div>
+
+
+<div id="management-container">
+    <div id="list-container">
+        <app-list></app-list>
+    </div>
+    <div id="action-container">
+        <h3>Actions</h3>
+        <div class="fixed" id="actions">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+

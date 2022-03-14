@@ -1,0 +1,30 @@
+<h4>Details</h4>
+
+<div *ngIf="tache; else loading">
+    <div>
+        <p><span class="info-title">id: </span> {{tache.id}} </p>
+    </div>
+    <div>
+        <p><span class="info-title">intitule: </span> {{tache.intitule}} </p>
+    </div>
+    <div>
+        <p><span class="info-title">priorite: </span> {{tache.priorite}} </p>
+    </div>
+    <div>
+        <p><span class="info-title">description: </span><span *ngIf="!tache.description">non specifé</span></p>
+        <p *ngIf="tache.description">{{tache.description}}</p>
+    </div>
+    <div>
+        <p><span class="info-title">créée le: </span> {{tache.dateCreation | date:'d MMMM yyyy à hh\'h\'mm'}} </p>
+    </div>
+    <div>
+        <p><span class="info-title">deadline: </span> {{tache.deadLine  | date:'d MMMM yyyy à hh\'h\'mm' | nonSpecifie}} </p>
+    </div>
+    <div>
+        <p><span class="info-title">terminée le: </span> {{tache.dateTermine | date:'d MMMM yyyy à hh\'h\'mm' | nonSpecifie}} </p>
+    </div>
+</div>
+
+<ng-template #loading>
+    <p>loading...</p>
+</ng-template>

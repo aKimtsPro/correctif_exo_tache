@@ -1,1 +1,168 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+$primary : #EE6C4D;
+$secondary : #293241;
+$hovered : #6689A1;
+$background: #e9f0f5;
+$base: #f5f2ec;
+$base-bg: #ddc49b;
+
+body {
+    background-color: $base;
+    color: $secondary;
+}
+
+main {
+    background-color: white;
+    padding: 10px;
+    margin: 20px 5% 100px 5%;
+}
+
+.highlight {
+    color: $primary;
+}
+
+header {
+    background-color: $secondary;
+    color: $base;
+}
+
+.router-link-active {
+    color: $primary;
+}
+
+a {
+    text-decoration: none;
+    color: $base;
+}
+
+a:hover {
+    color: $hovered
+}
+
+.bordered {
+    border: 2px solid $secondary;
+}
+
+.round {
+    border-radius: 10px;
+}
+
+.primary-btn, .primary-bg {
+    background-color: $primary !important;
+    color: $secondary;
+}
+
+.secondary-btn, .secondary-bg {
+    background-color: $secondary !important;
+    color: $base;
+}
+
+.base-btn, base-bg {
+    background-color: $base;
+    color: $secondary;
+}
+
+
+
+
+.secondary-btn:hover, .primary-btn:hover, .base-btn:hover {
+    background-color: $hovered !important;
+    color: $base;
+}
+
+.display-right {
+    display: flex;
+    justify-content: right;
+}
+
+.form-error {
+    color: #EE6C4D;
+}
+
+.btn-group > .btn {
+    margin-left: 0 !important;
+}
+
+.btn-rack{
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.btn-rack > button {
+    width: 50%;
+}
+
+.info-title {
+    color: $primary;
+    font-weight: bold;
+}
+
+
+
+.tache-item{
+    border: 2px solid $secondary;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: $background;
+    display: flex;
+    justify-content: space-between;
+}
+
+.tache-item:hover {
+    background-color: $base-bg;
+}
+
+.infos {
+    width: 70%;
+}
+
+.actions {
+    width: 30%;
+}
+
+@media screen and (max-width: 1150px) {
+    .btn-rack {
+        display: block;
+    }
+    .btn-rack > button {
+        width: 100%;
+        border-radius: 0.25rem !important;
+    }
+}
+
+.page-item .page-link{
+    color: $secondary;
+}
+
+.control-panel{
+    padding: 10px;
+    margin: 5px 0 10px 0;
+    border: 2px solid $secondary;
+    border-radius: 5px;
+}
+
+.control-form-input {
+    margin-bottom: 10px;
+}
+
+.page-item.active .page-link{
+    background-color: $primary;
+    color: white;
+    border: 1px solid $secondary;
+}
+
+::-webkit-scrollbar{
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $hovered;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $secondary;
+}

@@ -1,0 +1,28 @@
+<h4>Terminer une tâche</h4>
+
+
+<div *ngIf="tache; else loading">
+    <div>
+        <div>
+            <p><span class="info-title">id: </span> {{tache.id}} </p>
+        </div>
+        <div>
+            <p><span class="info-title">intitule: </span> {{tache.intitule}} </p>
+        </div>
+    </div>
+
+    <div *ngIf="!canTerminate; else buttons">
+        <p>Cette tâche ne peut être terminée</p>
+    </div>
+</div>
+
+<ng-template #buttons>
+    <div class="btn-group btn-rack">
+        <button class="btn primary-btn" (click)="terminate()">terminer</button>
+        <button class="btn secondary-btn" (click)="cancel()">annuler</button>
+    </div>
+</ng-template>
+
+<ng-template #loading>
+    <p>loading...</p>
+</ng-template>

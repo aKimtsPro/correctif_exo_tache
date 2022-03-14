@@ -1,0 +1,29 @@
+<div>
+    <h5>Controle de tri</h5>
+
+    <form class="control-form" [formGroup]="sortForm" (ngSubmit)="onSubmit()">
+        <div class="control-form-input row">
+            <div class="col-md-6">
+                <label for="select-sort">trier selon?</label>
+                <select id="select-sort" class="form-select" formControlName="sortBy">
+                    <option [ngValue]="null">/</option>
+                    <option value="priorite">priorite</option>
+                    <option value="deadLine">deadline</option>
+                    <option value="dateCreation">creation</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="select-asc">trier asc?</label>
+                <select id="select-asc" class="form-select" formControlName="asc">
+                    <option [ngValue]="true">asc</option>
+                    <option [ngValue]="false">desc</option>
+                </select>
+            </div>
+        </div>
+        <div class="btn-rack btn-group">
+            <button type="submit" class="btn primary-btn">trier</button>
+            <button type="reset" class="btn base-btn">reset</button>
+        </div>
+       
+    </form>
+</div>
