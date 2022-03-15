@@ -23,6 +23,7 @@ import { SharedModule } from './shared/shared.module';
 import { TerminateComponent } from './components/task-management-center/terminate/terminate.component';
 import { FilterToolComponent } from './components/task-management-center/list/filter-tool/filter-tool.component';
 import { SortingToolComponent } from './components/task-management-center/list/sorting-tool/sorting-tool.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { SortingToolComponent } from './components/task-management-center/list/s
     DeleteComponent,
     TerminateComponent,
     FilterToolComponent,
-    SortingToolComponent
+    SortingToolComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

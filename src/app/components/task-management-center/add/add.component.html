@@ -6,16 +6,20 @@
     <div class="mb-3">
         <label for="input-intitule" class="form-label">Intitule</label>
         <input type="text" class="form-control" id="input-intitule" formControlName="intitule">
-        <div *ngIf="tacheForm.controls['intitule'].errors?.['required']" class="form-error">champ requis</div>
+        <form-control-error [control]="tacheForm.controls['intitule']" error="required">champ requis</form-control-error>
+        <form-control-error [control]="tacheForm.controls['intitule']" error="minlength">minimum 2 caractères</form-control-error>
+        <form-control-error [control]="tacheForm.controls['intitule']" error="maxlength">maximum 20 caractères</form-control-error>
       </div>
 
       <div class="mb-3">
         <label for="disabledSelect" class="form-label">priorité</label>
-        <select id="disabledSelect" class="form-select" formControlName="priorite" >
+        <select id="disabledSelect" class="form-select" formControlName="priorite">
           <option value="bas">basse</option>
           <option value="moyen">moyenne</option>
           <option value="haut">haute</option>
         </select>
+        <form-control-error [control]="tacheForm.controls['priorite']" error="required">champ requis</form-control-error>
+        <form-control-error [control]="tacheForm.controls['priorite']" error="priority">priorité invalide</form-control-error>
       </div>
 
       <div class="mb-3 btn-rack btn-group">
@@ -26,13 +30,18 @@
       <div class="mb-3" *ngIf="descriptionIncluded">
         <label for="input-description" class="form-label">Description</label>
         <textarea class="form-control" id="input-description" rows="3" formControlName="description" ></textarea>
+        <form-control-error [control]="tacheForm.controls['description']" error="maxlength">maximum 500 caractères</form-control-error>
       </div>  
 
       <div class="mb-3" *ngIf="deadlineIncluded">
         <label for="input-deadline" class="form-label">Deadline</label>
         <input type="datetime-local" class="form-control" id="input-deadline" formControlName="deadLine"/>
+        <form-control-error [control]="tacheForm.controls['deadLine']" error="isFuture" message="message">la deadline doit être future</form-control-error>
       </div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="btn-rack btn-group">
+        <button type="submit" class="btn primary-btn">créer</button>
+        <button type="button" (click)="onReset()" class="btn secondary-btn">reset</button>
+      </div>
 
 </form>

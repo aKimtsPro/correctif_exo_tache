@@ -39,8 +39,20 @@ export class AddComponent implements OnInit {
   }
 
   onSubmit(){
+    console.log(this.tacheForm)
     if(this.tacheForm.valid)
       this.service.insert(this.tacheForm.value).subscribe(() => this.router.navigateByUrl('/tache') );
   }
 
+  onReset(){
+    this.tacheForm.patchValue({
+      intitule: null,
+      priorite: 'moyen',
+      description: null,
+      deadLine: null
+    });
+
+    this.deadlineIncluded = false;
+    this.descriptionIncluded = false;
+  }
 }

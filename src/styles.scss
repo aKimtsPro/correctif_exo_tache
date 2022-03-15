@@ -18,7 +18,7 @@ body {
 main {
     background-color: white;
     padding: 10px;
-    margin: 20px 5% 100px 5%;
+    margin: 20px 20px 80px 20px;
 }
 
 .highlight {
@@ -101,8 +101,6 @@ a:hover {
     font-weight: bold;
 }
 
-
-
 .tache-item{
     border: 2px solid $secondary;
     border-radius: 5px;
@@ -124,6 +122,57 @@ a:hover {
 .actions {
     width: 30%;
 }
+
+// footer style
+footer {
+    position: fixed;
+    bottom: 0;
+    padding: 5px 20px 10px 20px;
+    background-color: $secondary;
+    width: 100%;
+    color: $base;
+    text-align: center;
+}
+
+// for task-management-center
+#task-manager{
+    min-height: 560px;
+}
+
+#management-container {
+    display: flex;
+    justify-content: center;
+}
+
+#mngmt-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+#list-container {
+    width: 60%;
+    padding-right: 20px;
+}
+
+#action-container {
+    width: 40%;
+}
+
+.fixed {
+    position: fixed;
+    top: 180px;
+    width: 37vw;
+}
+
+#actions {
+    max-height: 450px;
+    overflow-y: auto;
+    padding: 5px;
+    border-top: 2px solid $secondary;
+    border-bottom: 2px solid $secondary;
+    background-color: $background;
+}
+
 
 @media screen and (max-width: 1150px) {
     .btn-rack {
@@ -156,8 +205,10 @@ a:hover {
     border: 1px solid $secondary;
 }
 
+// scroll customization
+
 ::-webkit-scrollbar{
-    width: 15px;
+    width: 12px;
 }
 
 ::-webkit-scrollbar-track {

@@ -66,4 +66,8 @@ export class UpdateComponent implements OnInit {
     this.tacheForm.patchValue({deadLine: this.deadlineIncluded ? this.tache.deadLine : null })
   }
 
+  onReset(){
+    this.setupForm(this.tache);
+  }
+
 }

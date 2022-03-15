@@ -5,6 +5,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { FilterPresentPipe } from './pipes/filter-present.pipe';
 import { FilterTachePipe } from './pipes/filter-tache.pipe';
 import { SortTachePipe } from './pipes/sort-tache.pipe';
+import { ErrorMessageComponent } from './components/error-message/error-message.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { SortTachePipe } from './pipes/sort-tache.pipe';
     FilterPipe,
     FilterPresentPipe,
     FilterTachePipe,
-    SortTachePipe
+    SortTachePipe,
+    ErrorMessageComponent
   ],
   imports: [
     CommonModule
@@ -22,7 +24,8 @@ import { SortTachePipe } from './pipes/sort-tache.pipe';
     FilterPipe,
     FilterPresentPipe,
     FilterTachePipe,
-    SortTachePipe
+    SortTachePipe,
+    ErrorMessageComponent
   ]
 })
 export class SharedModule { }
