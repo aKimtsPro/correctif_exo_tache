@@ -13,9 +13,8 @@ export class TerminatedGuard implements CanActivate {
     private router: Router
   ){}
 
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  canActivate( route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree 
+  {
       return this.service.getOne(route.params['id']).pipe(concatMap(tache => {
         if(tache.dateTermine)
           this.router.navigateByUrl("/tache");

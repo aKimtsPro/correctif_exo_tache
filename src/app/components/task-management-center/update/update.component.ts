@@ -21,6 +21,7 @@ export class UpdateComponent implements OnInit {
   constructor(builder: FormBuilder, private route: ActivatedRoute, private service: TacheService) {
     this.tacheForm = builder.group(TACHE_FORM);
     this.loadTache(route.snapshot.params['id']);
+
     route.params.subscribe((params) => this.loadTache(params['id']));
   }
 
@@ -35,18 +36,20 @@ export class UpdateComponent implements OnInit {
 
   setupForm(tache: Tache) {
     this.tache = tache;
-        this.tacheForm.patchValue({
-          intitule: tache.intitule,
-          description: tache.description,
-          priorite: tache.priorite,
-          deadLine: tache.deadLine
-        })
-        this.descriptionIncluded = tache.description ? true : false;
-        this.deadlineIncluded = tache.deadLine ? true : false;
+
+    this.tacheForm.patchValue({
+      intitule: tache.intitule,
+      description: tache.description,
+      priorite: tache.priorite,
+      deadLine: tache.deadLine
+    })
+    
+    this.descriptionIncluded = tache.description ? true : false;
+    this.deadlineIncluded = tache.deadLine ? true : false;
   }
 
   onSubmit(){
-    console.log(this.tacheForm.value)
+    // console.log(this.tacheForm.value)
     if( this.tache && this.tacheForm.valid ){
       this.service.update(this.tache.id, this.tacheForm.value).subscribe((tache) => {
         this.setupForm(tache);

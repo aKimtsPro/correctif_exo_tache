@@ -23,11 +23,13 @@ export class TacheService {
   }
 
   update(id: number, form: TacheForm): Observable<Tache>{
-    return this.client.patch<Tache>(this.BASE_URL+'/'+id, form).pipe(tap(() => this.updated.next(null)));
+    return this.client.patch<Tache>(this.BASE_URL+'/'+id, form)
+      .pipe( tap(() => this.updated.next(null)) );
   }
 
   delete(id: number){
-    return this.client.delete(this.BASE_URL+'/'+id).pipe(tap(() => this.updated.next(null)));
+    return this.client.delete(this.BASE_URL+'/'+id)
+      .pipe(tap(() => this.updated.next(null)));
   }
 
   insert(form: TacheForm): Observable<Tache>{
@@ -39,7 +41,7 @@ export class TacheService {
       deadLine: form.deadLine,
       dateCreation: new Date(),
       dateTermine: null,
-    }).pipe(tap(() => this.updated.next(null)));
+    }).pipe( tap(() => this.updated.next(null)) );
   }
 
   finish(id: number) {
@@ -53,7 +55,7 @@ export class TacheService {
         else 
           return throwError(() => {message: 'impossible de terminer un tache post deadline'})
       }),
-      tap(() => this.updated.next(null))
+      tap( () => this.updated.next(null) )
     );
   }
 

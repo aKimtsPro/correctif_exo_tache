@@ -1,7 +1,7 @@
-<div class="tache-item" >
+<div class="tache-item" [priority-color]="tache.priorite">
     <div class="infos">
         <div>
-            <h5>{{tache.intitule}}</h5>
+            <h5>{{tache.intitule}} <i class="fa fa-check validate-icon" *ngIf="tache.dateTermine"></i></h5>
         </div>
         <div>
             <p><span class="info-title">créée le: </span>{{tache.dateCreation | date:'d MMMM yyyy à hh\'h\'mm'}}</p>

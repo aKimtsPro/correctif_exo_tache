@@ -24,6 +24,7 @@ import { TerminateComponent } from './components/task-management-center/terminat
 import { FilterToolComponent } from './components/task-management-center/list/filter-tool/filter-tool.component';
 import { SortingToolComponent } from './components/task-management-center/list/sorting-tool/sorting-tool.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PriorityColorDirective } from './directives/priority-color.directive';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { FooterComponent } from './components/footer/footer.component';
     TerminateComponent,
     FilterToolComponent,
     SortingToolComponent,
-    FooterComponent
+    FooterComponent,
+    PriorityColorDirective
   ],
   imports: [
     BrowserModule,

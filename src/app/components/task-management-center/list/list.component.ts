@@ -36,7 +36,7 @@ export class ListComponent implements OnInit, OnChanges {
   }
 
   loadTaches(){
-    this.taches$ = this.service.getAll().pipe(tap(e => console.log(typeof e[0].dateTermine)));
+    this.taches$ = this.service.getAll();
   }
 
   changeTermine(termine:any){
@@ -47,6 +47,7 @@ export class ListComponent implements OnInit, OnChanges {
     this.deadline = deadline === 'undefined' ? undefined : deadline === 'true' ? true : false ;
   }
 
+  // filter
   onFilter(filter: FilterOptions) {
     this.filter = filter;
     this.toggleFiltrer();
@@ -60,6 +61,7 @@ export class ListComponent implements OnInit, OnChanges {
     this.filter = undefined;
   }
 
+  // sorting
   toggleTri(){
     this.triDisplayed = !this.triDisplayed;
   }

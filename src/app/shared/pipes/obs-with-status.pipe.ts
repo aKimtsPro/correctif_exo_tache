@@ -14,12 +14,10 @@ export class ObsWithStatusPipe implements PipeTransform {
         value
       })),
       startWith({
-        loading:true,
-        value: undefined
+        loading:true
       }),
       catchError(err => of({
-        loading:false, 
-        value: undefined,
+        loading:false,
         err
       }))
     );

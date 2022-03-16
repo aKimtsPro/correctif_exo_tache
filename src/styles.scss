@@ -3,12 +3,64 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+@keyframes itemInfoFocus {
+    0% { 
+        width: calc(100% - 30px);
+    }
+    100% {
+        width: 70%;
+    }
+}
+
+@keyframes itemActionFocus {
+    0% { 
+        width: 30px;
+    }
+    100% {
+        width: 30%;
+    }
+}
+
+@keyframes btnFocus {
+    0% {
+        visibility: hidden;
+    }
+    19% {
+        visibility: hidden;
+    }
+    20% {
+        visibility: visible; 
+    }
+    100% {
+        visibility: visible;
+    }
+}
+
 $primary : #EE6C4D;
 $secondary : #293241;
 $hovered : #6689A1;
 $background: #e9f0f5;
 $base: #f5f2ec;
 $base-bg: #ddc49b;
+
+// priority
+.low-priority {
+    background-color: rgb(224, 248, 207);
+}
+
+.medium-priority {
+    background-color: rgb(243, 237, 154);
+}
+
+.high-priority {
+    background-color: rgb(241, 192, 192);
+}
+
+// icons
+.validate-icon {
+    color: rgb(28, 121, 28);
+}
+
 
 body {
     background-color: $base;
@@ -105,24 +157,44 @@ a:hover {
     border: 2px solid $secondary;
     border-radius: 5px;
     margin-bottom: 5px;
-    padding: 10px;
-    background-color: $background;
     display: flex;
     justify-content: space-between;
-}
-
-.tache-item:hover {
-    background-color: $base-bg;
+    box-shadow: none;
 }
 
 .infos {
     width: 70%;
+    padding: 10px;
+    overflow-x: hidden;
+}
+
+.tache-item:hover .infos {
+    box-shadow: inset -10px 0px 20px -10px #000000;
+    animation-name: itemInfoFocus;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
 
 .actions {
-    width: 30%;
+    width: 30px;
+    padding: 10px;
+    background-color: $background;
 }
 
+.tache-item:hover .actions {
+    animation-name: itemActionFocus;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.tache-item .actions>div {
+    visibility: hidden;
+}
+.tache-item:hover .actions>div {
+    animation-name: btnFocus;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
 // footer style
 footer {
     position: fixed;
